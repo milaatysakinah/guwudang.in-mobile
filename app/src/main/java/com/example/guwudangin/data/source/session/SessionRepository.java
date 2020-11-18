@@ -1,7 +1,4 @@
-package pens.lab.app.belajaractivity.data.source.session;
-
-import android.content.Context;
-import android.content.SharedPreferences;
+package com.example.guwudangin.data.source.session;
 
 public interface SessionRepository<T> {
     public final String SHARED_PREFERENCE_NAME = "SessionSharedPreferences";

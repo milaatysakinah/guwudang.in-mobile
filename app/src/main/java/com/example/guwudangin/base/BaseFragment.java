@@ -1,4 +1,4 @@
-package pens.lab.app.belajaractivity.base;
+package com.example.guwudangin.base;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,7 +9,8 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import pens.lab.app.belajaractivity.R;
+
+import com.example.guwudangin.R;
 
 
 public abstract class BaseFragment<T extends FragmentActivity, U extends BasePresenter> extends Fragment {

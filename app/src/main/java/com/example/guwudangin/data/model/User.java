@@ -1,6 +1,6 @@
-package pens.lab.app.belajaractivity.data.model;
+package com.example.guwudangin.data.model;
 
-import pens.lab.app.belajaractivity.base.BaseModel;
+import com.example.guwudangin.base.BaseModel;
 
 public class User extends BaseModel {
     private String email;

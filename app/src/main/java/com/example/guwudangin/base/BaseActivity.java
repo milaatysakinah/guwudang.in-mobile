@@ -1,11 +1,12 @@
-package pens.lab.app.belajaractivity.base;
+package com.example.guwudangin.base;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import pens.lab.app.belajaractivity.R;
+
+import com.example.guwudangin.R;
 
 
 public abstract  class BaseActivity extends FragmentActivity implements FragmentListener{

@@ -1,4 +1,4 @@
-package pens.lab.app.belajaractivity.base;
+package com.example.guwudangin.base;
 
 public interface FragmentListener {
     void setTitle(String title);

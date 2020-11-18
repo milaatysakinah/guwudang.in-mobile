@@ -1,4 +1,4 @@
-package pens.lab.app.belajaractivity.base;
+package com.example.guwudangin.base;
 
 public class BaseModel  {
     private String statusMsg;

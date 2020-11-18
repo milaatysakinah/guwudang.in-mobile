@@ -2,4 +2,5 @@
 <resources>
     <attr name="tabBackgroundColor" format="color" />
     <attr name="toolbarBackgroundColor" format="color" />
+    <attr name="textWhiteColor" format="color" />
 </resources>

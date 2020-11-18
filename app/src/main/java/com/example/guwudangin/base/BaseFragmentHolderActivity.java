@@ -1,4 +1,4 @@
-package pens.lab.app.belajaractivity.base;
+package com.example.guwudangin.base;
 
 import android.view.View;
 import android.widget.FrameLayout;
@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import pens.lab.app.belajaractivity.R;
+import com.example.guwudangin.R;
 
 
 public abstract class BaseFragmentHolderActivity extends BaseActivity {

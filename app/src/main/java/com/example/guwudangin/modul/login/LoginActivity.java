@@ -1,8 +1,10 @@
-package com.example.guwudangin;
+package com.example.guwudangin.modul.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.guwudangin.R;
 
 public class LoginActivity extends AppCompatActivity {
 

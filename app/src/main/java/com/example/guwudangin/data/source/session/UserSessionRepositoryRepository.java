@@ -1,10 +1,9 @@
-package pens.lab.app.belajaractivity.data.source.session;
+package com.example.guwudangin.data.source.session;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import pens.lab.app.belajaractivity.data.model.User;
-
+import com.example.guwudangin.data.model.User;
 import com.google.gson.Gson;
 
 public class UserSessionRepositoryRepository implements SessionRepository<User> {
