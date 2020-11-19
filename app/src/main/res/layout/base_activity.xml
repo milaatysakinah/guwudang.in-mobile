@@ -8,11 +8,6 @@
         android:id="@+id/flFragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/layutToolbar"
-        android:layout_marginTop="-5dp" />
-
-    <include
-        android:id="@+id/layutToolbar"
-        layout="@layout/base_toolbar_layout" />
+        android:layout_marginTop="0dp" />
 
 </RelativeLayout>

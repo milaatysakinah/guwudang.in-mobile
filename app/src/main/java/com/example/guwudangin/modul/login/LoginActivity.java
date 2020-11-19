@@ -1,16 +1,31 @@
 package com.example.guwudangin.modul.login;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.guwudangin.base.BaseFragmentHolderActivity;
 
-import android.os.Bundle;
+public class LoginActivity extends BaseFragmentHolderActivity {
+    LoginFragment loginFragment;
 
-import com.example.guwudangin.R;
-
-public class LoginActivity extends AppCompatActivity {
-
-    @Override
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        //setContentView(R.layout.activity_login);
+        AndroidNetworking.initialize(getApplicationContext());
+
+        initializeFragment();
+    }*/
+
+
+    @Override
+    protected void initializeFragment() {
+        initializeView();
+
+        //btBack.setVisibility(View.GONE);
+        //btOptionMenu.setVisibility(View.GONE);
+//        ivIcon.setImageResource(R.drawable.....);
+        //ivIcon.setVisibility(View.VISIBLE);
+
+        loginFragment = new LoginFragment();
+        setCurrentFragment(loginFragment, false);
+        //loginFragment.onCreateView();
     }
 }

@@ -10,8 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
-import com.example.guwudangin.R;
-
 
 public abstract class BaseFragment<T extends FragmentActivity, U extends BasePresenter> extends Fragment {
 
@@ -35,8 +33,6 @@ public abstract class BaseFragment<T extends FragmentActivity, U extends BasePre
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
-        title = getResources().getString(R.string.app_name);
-        setTitle(title);
 
         return view;
     }

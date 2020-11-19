@@ -37,37 +37,38 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bt_login"
         android:layout_width="333dp"
         android:layout_height="43dp"
         android:layout_marginBottom="114dp"
         android:background="@drawable/button"
+        android:elevation="10dp"
         android:fontFamily="@font/extrabold"
         android:text="LOGIN"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="26sp"
-        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/et_password"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/et_email"
         android:layout_width="325dp"
         android:layout_height="46dp"
         android:background="@drawable/input_field"
+        android:drawableStart="@drawable/ic_baseline_person_outline_24"
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="15dp"
-        android:drawableStart="@drawable/ic_baseline_person_outline_24"
+        android:elevation="10dp"
         android:ems="10"
         android:hint="Email Address"
         android:inputType="textPersonName"
+        android:text="kucing1"
         android:textColorHint="@color/bluetop"
-        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.327"
@@ -76,23 +77,24 @@
         app:layout_constraintVertical_bias="0.606" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/et_password"
         android:layout_width="325dp"
         android:layout_height="46dp"
         android:layout_marginTop="28dp"
+        android:background="@drawable/input_field"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="20dp"
-        android:drawableStart="@drawable/ic_baseline_lock_24"
-        android:background="@drawable/input_field"
+        android:elevation="10dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:text="kucing1"
         android:textColorHint="@color/bluetop"
-        android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.327"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/et_email" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
