@@ -1,4 +1,4 @@
-package com.example.guwudangin.modul.login;
+package com.example.guwudangin.modul.productdetail;
 
 import com.example.guwudangin.base.BasePresenter;
 import com.example.guwudangin.base.BaseView;
@@ -7,14 +7,12 @@ import com.example.guwudangin.base.BaseView;
  * Created by fahrul on 13/03/19.
  */
 
-public interface LoginContract {
+public interface ProductDetailContract {
     interface View extends BaseView<Presenter> {
-        void redirectToProfile();
-        void falseLogin();
+        void redirectToLogin();
     }
 
     interface Presenter extends BasePresenter {
-        //void performLogin();
-        void performLogin(String email, String password);
+        void logout();
     }
 }

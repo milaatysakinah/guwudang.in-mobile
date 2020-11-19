@@ -1,4 +1,4 @@
-package pens.lab.app.belajaractivity.modul.login;
+package com.example.guwudangin.modul.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import pens.lab.app.belajaractivity.R;
-import pens.lab.app.belajaractivity.base.BaseFragment;
-import pens.lab.app.belajaractivity.data.source.session.UserSessionRepositoryRepository;
-import pens.lab.app.belajaractivity.modul.todolist.TodoListActivity;
 
+import com.example.guwudangin.R;
+import com.example.guwudangin.base.BaseFragment;
+import com.example.guwudangin.data.source.session.UserSessionRepositoryRepository;
+import com.example.guwudangin.modul.productdetail.ProductDetailActivity;
 
 /**
  * Created by fahrul on 13/03/19.
@@ -32,9 +32,9 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
 
     @Nullable
     @Override
-    public android.view.View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        fragmentView = inflater.inflate(R.layout.fragment_login, container, false);
+        fragmentView = inflater.inflate(R.layout.activity_login, container, false);
         mPresenter = new LoginPresenter(this, new UserSessionRepositoryRepository(getActivity()));                      //add
         mPresenter.start();
 
@@ -48,15 +48,20 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
             }
         });
 
-        setTitle("My Login View");
-
         return fragmentView;
     }
 
     public void setBtLoginClick(){
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
-        mPresenter.performLogin(email,password);
+        //mPresenter.performLogin(email,password);
+        //Toast.makeText(activity, "Berhasil", Toast.LENGTH_LONG).show();
+        mPresenter.performLogin(email, password);
+    }
+
+    @Override
+    public void falseLogin(){
+        Toast.makeText(activity, "Email / Password is Wrong", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -66,8 +71,9 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
 
     @Override
     public void redirectToProfile() {
-            Intent intent = new Intent(activity, TodoListActivity.class);
+            Intent intent = new Intent(activity, ProductDetailActivity.class);
             startActivity(intent);
+            Toast.makeText(activity, "Moving To Product", Toast.LENGTH_LONG).show();
             activity.finish();
     }
 

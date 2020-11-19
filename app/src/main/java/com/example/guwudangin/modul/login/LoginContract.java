@@ -1,7 +1,7 @@
-package pens.lab.app.belajaractivity.modul.login;
+package com.example.guwudangin.modul.login;
 
-import pens.lab.app.belajaractivity.base.BasePresenter;
-import pens.lab.app.belajaractivity.base.BaseView;
+import com.example.guwudangin.base.BasePresenter;
+import com.example.guwudangin.base.BaseView;
 
 /**
  * Created by fahrul on 13/03/19.
@@ -10,9 +10,11 @@ import pens.lab.app.belajaractivity.base.BaseView;
 public interface LoginContract {
     interface View extends BaseView<Presenter> {
         void redirectToProfile();
+        void falseLogin();
     }
 
     interface Presenter extends BasePresenter {
+        //void performLogin();
         void performLogin(String email, String password);
     }
 }
