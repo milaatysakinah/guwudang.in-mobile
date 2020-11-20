@@ -65,6 +65,10 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
         Toast.makeText(activity, "Email / Password is Wrong", Toast.LENGTH_LONG).show();
     }
 
+    public void showError(String error){
+        Toast.makeText(activity, error, Toast.LENGTH_LONG).show();
+    }
+
     @Override
     public void setPresenter(LoginContract.Presenter presenter) {
         mPresenter = presenter;

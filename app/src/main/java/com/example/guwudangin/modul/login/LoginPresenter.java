@@ -1,7 +1,12 @@
 package com.example.guwudangin.modul.login;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.example.guwudangin.data.model.User;
 import com.example.guwudangin.data.source.session.SessionRepository;
+
+import org.json.JSONObject;
 
 public class LoginPresenter implements com.example.guwudangin.modul.login.LoginContract.Presenter{
     private final LoginContract.View view;
@@ -22,16 +27,15 @@ public class LoginPresenter implements com.example.guwudangin.modul.login.LoginC
     @Override
     public void performLogin(final String email, final String password){
         //proses login
-        /*AndroidNetworking.post("http://localhost:8000/api/login")
+        AndroidNetworking.post("http://192.168.0.110:8000/api/login")
                                     .addBodyParameter("email", email)
                                     .addBodyParameter("password", password)
-                                    .setTag("login")
-                                    .setPriority(Priority.IMMEDIATE)
                                     .build()
                                     .getAsJSONObject(new JSONObjectRequestListener() {
                                         @Override
                                         public void onResponse(JSONObject response) {
                                             //if login success
+                                            view.showError("login success");
                                             User loggedUser = new User(email, "TOKEN123456");                                    //new
                                             sessionRepository.setSessionData(loggedUser);                                               //new
 
@@ -41,13 +45,14 @@ public class LoginPresenter implements com.example.guwudangin.modul.login.LoginC
 
                                         @Override
                                         public void onError(ANError anError) {
+                                            view.showError(anError.getErrorCode() + " " + anError.getErrorDetail());
                                             view.falseLogin();
                                         }
                                     });
 
-         */
 
-        if (email.equals("kucing1") && password.equals("kucing1")){
+
+        /*if (email.equals("kucing1") && password.equals("kucing1")){
             //if login success
             User loggedUser = new User(email, "TOKEN123456");                                    //new
             sessionRepository.setSessionData(loggedUser);                                               //new
@@ -56,6 +61,6 @@ public class LoginPresenter implements com.example.guwudangin.modul.login.LoginC
             view.redirectToProfile();
         }else
             view.falseLogin();
-
+        */
     }
 }

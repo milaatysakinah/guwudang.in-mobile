@@ -11,6 +11,7 @@ public interface LoginContract {
     interface View extends BaseView<Presenter> {
         void redirectToProfile();
         void falseLogin();
+        void showError(String error);
     }
 
     interface Presenter extends BasePresenter {

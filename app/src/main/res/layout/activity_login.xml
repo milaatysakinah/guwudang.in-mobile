@@ -67,7 +67,7 @@
         android:ems="10"
         android:hint="Email Address"
         android:inputType="textPersonName"
-        android:text="kucing1"
+        android:text="kucing1@gmail.com"
         android:textColorHint="@color/bluetop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
