@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.guwudangin.MainActivity;
 import com.example.guwudangin.R;
 import com.example.guwudangin.base.BaseFragment;
 import com.example.guwudangin.data.source.session.UserSessionRepositoryRepository;
@@ -71,7 +72,7 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
 
     @Override
     public void redirectToProfile() {
-            Intent intent = new Intent(activity, ProductDetailActivity.class);
+            Intent intent = new Intent(activity, MainActivity.class);
             startActivity(intent);
             Toast.makeText(activity, "Moving To Product", Toast.LENGTH_LONG).show();
             activity.finish();
