@@ -5,6 +5,7 @@ import android.util.Log;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.example.guwudangin.data.model.Product;
@@ -14,6 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class QRScannerPresenter implements QRScannerContract.Presenter{
@@ -37,10 +39,8 @@ public class QRScannerPresenter implements QRScannerContract.Presenter{
         if(!(id.equals(""))) {
 
            /*AndroidNetworking.get("192.168.2.4:8000/api/product/{id}")*/
-            /*AndroidNetworking.get("192.168.2.4:8000/api/product/{id}")
-                    .addHeaders("id", id)
-                    .setTag(this)
-                    .setPriority(Priority.LOW)
+            AndroidNetworking.get("http://192.168.2.4:8000/api/product/{id}")
+                    .addPathParameter("id", id)
                     .build()
                     .getAsObject(Product.class, new ParsedRequestListener<Product>() {
                         @Override
@@ -49,21 +49,35 @@ public class QRScannerPresenter implements QRScannerContract.Presenter{
                             Product save = product;
                             sessionRepository.setSessionData(save);
                             Log.d("Sukses", "Sukses");
-//                            Log.d(TAG, "id : " + user.id);
-//                            Log.d(TAG, "firstname : " + user.firstname);
-//                            Log.d(TAG, "lastname : " + user.lastname);
+                            view.redirectToProduct();
                         }
                         @Override
                         public void onError(ANError anError) {
                             // handle error
                             Log.d("Gagal", anError.toString());
                         }
-                    });*/
+                    });
+
+//            AndroidNetworking.get("http://192.168.2.4:8000/api/product/{productId}")
+//                    .addPathParameter("productId", "1")
+//                    .build()
+//                    .getAsJSONArray(new JSONArrayRequestListener() {
+//                        @Override
+//                        public void onResponse(JSONArray response) {
+//                            // do anything with response
+//                            Log.d("SUKSES", response.toString());
+//                        }
+//                        @Override
+//                        public void onError(ANError error) {
+//                            // handle error
+//                            Log.d("GAGAL", error.toString());
+//                        }
+//                    });
 
 
-            Product product = new Product(id,"TOKEN123456");
-            sessionRepository.setSessionData(product);
-            view.redirectToProduct();
+//            Product product = new Product(id,"TOKEN123456");
+//            sessionRepository.setSessionData(product);
+//            view.redirectToProduct();
         }
     }
 }

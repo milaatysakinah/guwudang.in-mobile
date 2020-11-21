@@ -23,7 +23,7 @@ import com.example.guwudangin.modul.login.LoginActivity;
 
 public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, ProductDetailContract.Presenter> implements ProductDetailContract.View {
     Button btnBack;
-    TextView productID;
+    TextView productID, productName, productPrice, productDesc, productStock;
 
     public ProductDetailFragment() {
     }
@@ -45,6 +45,10 @@ public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, P
         });
 
         productID = fragmentView.findViewById(R.id.textView4);
+        productName = fragmentView.findViewById(R.id.textView3);
+        productPrice = fragmentView.findViewById(R.id.textView6);
+        productStock = fragmentView.findViewById(R.id.textView7);
+        productDesc = fragmentView.findViewById(R.id.textView8);
 
         getData();
 
@@ -57,7 +61,10 @@ public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, P
 
     private void getData() {
         Product product = mPresenter.getProduct();
-        productID.setText(product.getId());
+        productID.setText(productID.getText() + " : " + product.getId());
+        productName.setText(product.getProduct_name());
+        productDesc.setText(product.getDescription());
+        productPrice.setText(productPrice.getText() + " : " + product.getPrice());
     }
 
     @Override
