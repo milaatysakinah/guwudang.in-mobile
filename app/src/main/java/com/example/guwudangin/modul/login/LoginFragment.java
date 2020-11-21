@@ -16,6 +16,7 @@ import com.example.guwudangin.R;
 import com.example.guwudangin.base.BaseFragment;
 import com.example.guwudangin.data.source.session.UserSessionRepositoryRepository;
 import com.example.guwudangin.modul.productdetail.ProductDetailActivity;
+import com.example.guwudangin.modul.qrscanner.QRScannerActivity;
 
 /**
  * Created by fahrul on 13/03/19.
@@ -76,9 +77,9 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
 
     @Override
     public void redirectToProfile() {
-            Intent intent = new Intent(activity, MainActivity.class);
+            Intent intent = new Intent(activity, QRScannerActivity.class);
             startActivity(intent);
-            Toast.makeText(activity, "Moving To Product", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, "Moving To Scanner", Toast.LENGTH_LONG).show();
             activity.finish();
     }
 

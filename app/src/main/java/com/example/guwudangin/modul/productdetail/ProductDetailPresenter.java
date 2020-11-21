@@ -1,6 +1,13 @@
 package com.example.guwudangin.modul.productdetail;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.example.guwudangin.data.model.Product;
+import com.example.guwudangin.data.model.User;
 import com.example.guwudangin.data.source.session.SessionRepository;
+
+import org.json.JSONObject;
 
 public class ProductDetailPresenter implements ProductDetailContract.Presenter{
     private final ProductDetailContract.View view;
@@ -14,6 +21,11 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter{
     @Override
     public void start() {
 
+    }
+
+    @Override
+    public Product getProduct() {
+        return (Product) sessionRepository.getSessionData();
     }
 
     @Override

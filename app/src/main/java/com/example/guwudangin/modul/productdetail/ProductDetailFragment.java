@@ -6,11 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
 import com.example.guwudangin.R;
 import com.example.guwudangin.base.BaseFragment;
+import com.example.guwudangin.data.model.Product;
+import com.example.guwudangin.data.source.session.ProductSessionRepository;
 import com.example.guwudangin.data.source.session.UserSessionRepositoryRepository;
 import com.example.guwudangin.modul.login.LoginActivity;
 
@@ -20,6 +23,7 @@ import com.example.guwudangin.modul.login.LoginActivity;
 
 public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, ProductDetailContract.Presenter> implements ProductDetailContract.View {
     Button btnBack;
+    TextView productID;
 
     public ProductDetailFragment() {
     }
@@ -29,7 +33,7 @@ public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, P
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         fragmentView = inflater.inflate(R.layout.activity_product_detail, container, false);
-        mPresenter = new ProductDetailPresenter(this, new UserSessionRepositoryRepository(getActivity()));                      //add
+        mPresenter = new ProductDetailPresenter(this, new ProductSessionRepository(getActivity()));                      //add
         mPresenter.start();
 
         btnBack = fragmentView.findViewById(R.id.bt_back);
@@ -40,11 +44,20 @@ public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, P
             }
         });
 
+        productID = fragmentView.findViewById(R.id.textView4);
+
+        getData();
+
         return fragmentView;
     }
 
     public void setBtBackClick(){
         mPresenter.logout();
+    }
+
+    private void getData() {
+        Product product = mPresenter.getProduct();
+        productID.setText(product.getId());
     }
 
     @Override
