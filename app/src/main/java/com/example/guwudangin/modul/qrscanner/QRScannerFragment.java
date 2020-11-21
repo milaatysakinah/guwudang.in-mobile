@@ -64,8 +64,8 @@ public class QRScannerFragment extends BaseFragment<QRScannerActivity, QRScanner
         previewView = fragmentView.findViewById(R.id.activity_main_previewView);
 
         qrCodeFoundButton = fragmentView.findViewById(R.id.activity_main_qrCodeFoundButton);
-//        qrCodeFoundButton.setVisibility(View.INVISIBLE);
-        qrCodeFoundButton.setVisibility(View.VISIBLE);
+        qrCodeFoundButton.setVisibility(View.INVISIBLE);
+//        qrCodeFoundButton.setVisibility(View.VISIBLE);
         qrCodeFoundButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,15 +145,18 @@ public class QRScannerFragment extends BaseFragment<QRScannerActivity, QRScanner
         imageAnalysis.setAnalyzer(ContextCompat.getMainExecutor(getContext()), new QRCodeImageAnalyzer(new QRCodeFoundListener() {
             @Override
             public void onQRCodeFound(String _qrCode) {
-                qrCode = "1";
+                qrCode = _qrCode;
                 qrCodeFoundButton.setVisibility(View.VISIBLE);
+//                qrCode = "1";
+//                qrCodeFoundButton.setVisibility(View.VISIBLE);
+                //Toast.makeText(getContext(), qrCode, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void qrCodeNotFound() {
-//                qrCodeFoundButton.setVisibility(View.INVISIBLE);
-                qrCode = "1";
-                qrCodeFoundButton.setVisibility(View.VISIBLE);
+                qrCodeFoundButton.setVisibility(View.INVISIBLE);
+//                qrCode = "1";
+//                qrCodeFoundButton.setVisibility(View.VISIBLE);
             }
         }));
 
