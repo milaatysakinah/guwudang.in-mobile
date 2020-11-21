@@ -27,20 +27,20 @@ public class LoginPresenter implements com.example.guwudangin.modul.login.LoginC
     @Override
     public void performLogin(final String email, final String password){
         //proses login
-        AndroidNetworking.post("http://192.168.0.110:8000/api/login")
+        AndroidNetworking.post("http://192.168.2.4:8000/api/login")
                                     .addBodyParameter("email", email)
                                     .addBodyParameter("password", password)
                                     .build()
                                     .getAsJSONObject(new JSONObjectRequestListener() {
                                         @Override
                                         public void onResponse(JSONObject response) {
-                                            //if login success
-                                            view.showError("login success");
-                                            User loggedUser = new User(email, "TOKEN123456");                                    //new
-                                            sessionRepository.setSessionData(loggedUser);                                               //new
+                                                //if login success
+                                                view.showError("login success");
+                                                User loggedUser = new User(email, "TOKEN123456");                                    //new
+                                                sessionRepository.setSessionData(loggedUser);                                               //new
 
-                                            //then call redirect to profile
-                                            view.redirectToProfile();
+                                                //then call redirect to profile
+                                                view.redirectToProfile();
                                         }
 
                                         @Override
