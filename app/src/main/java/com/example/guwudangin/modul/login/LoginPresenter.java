@@ -27,7 +27,7 @@ public class LoginPresenter implements com.example.guwudangin.modul.login.LoginC
     @Override
     public void performLogin(final String email, final String password){
         //proses login
-        AndroidNetworking.post("http://192.168.2.4:8000/api/login")
+        AndroidNetworking.post("http://192.168.43.170:8000/api/login")
                                     .addBodyParameter("email", email)
                                     .addBodyParameter("password", password)
                                     .build()

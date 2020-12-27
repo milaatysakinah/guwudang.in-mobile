@@ -16,6 +16,8 @@ import com.example.guwudangin.data.model.Product;
 import com.example.guwudangin.data.source.session.ProductSessionRepository;
 import com.example.guwudangin.data.source.session.UserSessionRepositoryRepository;
 import com.example.guwudangin.modul.login.LoginActivity;
+import com.example.guwudangin.modul.qrscanner.QRScannerActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * Created by fahrul on 13/03/19.
@@ -23,6 +25,7 @@ import com.example.guwudangin.modul.login.LoginActivity;
 
 public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, ProductDetailContract.Presenter> implements ProductDetailContract.View {
     Button btnBack;
+    FloatingActionButton QRfab;
     TextView productID, productName, productPrice, productDesc, productStock;
 
     public ProductDetailFragment() {
@@ -49,6 +52,14 @@ public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, P
         productPrice = fragmentView.findViewById(R.id.textView6);
         productStock = fragmentView.findViewById(R.id.textView7);
         productDesc = fragmentView.findViewById(R.id.textView8);
+        QRfab = fragmentView.findViewById(R.id.fabqr);
+
+        QRfab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectToQR();
+            }
+        });
 
         getData();
 
@@ -77,5 +88,11 @@ public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, P
             Intent intent = new Intent(activity, LoginActivity.class);
             startActivity(intent);
             activity.finish();
+    }
+
+    public void redirectToQR() {
+        Intent intent = new Intent(activity, QRScannerActivity.class);
+        startActivity(intent);
+        activity.finish();
     }
 }

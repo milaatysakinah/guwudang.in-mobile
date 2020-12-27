@@ -39,7 +39,7 @@ public class QRScannerPresenter implements QRScannerContract.Presenter{
         if(!(id.equals(""))) {
 
            /*AndroidNetworking.get("192.168.2.4:8000/api/product/{id}")*/
-            AndroidNetworking.get("http://192.168.2.4:8000/api/product/{id}")
+            AndroidNetworking.get("http://192.168.43.170:8000/api/product/{id}")
                     .addPathParameter("id", id)
                     .build()
                     .getAsObject(Product.class, new ParsedRequestListener<Product>() {

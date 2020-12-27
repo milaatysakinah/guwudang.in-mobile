@@ -1,6 +1,8 @@
 package com.example.guwudangin.modul.login;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.camera.lifecycle.ProcessCameraProvider;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.guwudangin.MainActivity;
 import com.example.guwudangin.R;
@@ -17,6 +22,9 @@ import com.example.guwudangin.base.BaseFragment;
 import com.example.guwudangin.data.source.session.UserSessionRepositoryRepository;
 import com.example.guwudangin.modul.productdetail.ProductDetailActivity;
 import com.example.guwudangin.modul.qrscanner.QRScannerActivity;
+import com.google.common.util.concurrent.ListenableFuture;
+
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by fahrul on 13/03/19.
@@ -27,6 +35,8 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
     EditText etEmail;
     EditText etPassword;
     Button btnLogin;
+    final int PERMISSION_REQUEST_CAMERA = 0;
+    ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
 
 
     public LoginFragment() {
@@ -49,8 +59,10 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
                 setBtLoginClick();
             }
         });
-
+        cameraProviderFuture = ProcessCameraProvider.getInstance(getContext());
+        requestCamera();
         return fragmentView;
+
     }
 
     public void setBtLoginClick(){
@@ -81,6 +93,18 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
             startActivity(intent);
             Toast.makeText(activity, "Moving To Scanner", Toast.LENGTH_LONG).show();
             activity.finish();
+    }
+
+
+
+    public void requestCamera() {
+        if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.CAMERA)) {
+                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
+            } else {
+                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
+            }
+        }
     }
 
 
