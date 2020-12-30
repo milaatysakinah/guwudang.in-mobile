@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,14 +24,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
 
-import com.example.guwudangin.MainActivity;
 import com.example.guwudangin.data.source.session.ProductSessionRepository;
 import com.example.guwudangin.modul.productdetail.ProductDetailActivity;
 import com.example.guwudangin.util.QRCodeFoundListener;
 import com.example.guwudangin.util.QRCodeImageAnalyzer;
 import com.example.guwudangin.R;
 import com.example.guwudangin.base.BaseFragment;
-import com.example.guwudangin.data.source.session.UserSessionRepositoryRepository;
+import com.example.guwudangin.data.source.session.UserSessionRepository;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
@@ -58,7 +56,7 @@ public class QRScannerFragment extends BaseFragment<QRScannerActivity, QRScanner
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         fragmentView = inflater.inflate(R.layout.activity_main, container, false);
-        mPresenter = new QRScannerPresenter(this, new ProductSessionRepository(getActivity()));                      //add
+        mPresenter = new QRScannerPresenter(this, new UserSessionRepository(getActivity()), new ProductSessionRepository(getActivity()));                      //add
         mPresenter.start();
 
         previewView = fragmentView.findViewById(R.id.activity_main_previewView);

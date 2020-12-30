@@ -20,11 +20,13 @@ import org.json.JSONObject;
 
 public class QRScannerPresenter implements QRScannerContract.Presenter{
     private final QRScannerContract.View view;
-    private final SessionRepository sessionRepository;                                              //new
+    private final SessionRepository userSessionRepository;
+    private final SessionRepository productSessionRepository;        //new
 
-    public QRScannerPresenter(QRScannerContract.View view, SessionRepository sessionRepository) {           //add
+    public QRScannerPresenter(QRScannerContract.View view, SessionRepository userSessionRepository, SessionRepository productSessionRepository) {           //add
         this.view = view;
-        this.sessionRepository = sessionRepository;                                                 //new
+        this.userSessionRepository = userSessionRepository;
+        this.productSessionRepository = productSessionRepository;                             //new
     }
 
     @Override
@@ -37,9 +39,10 @@ public class QRScannerPresenter implements QRScannerContract.Presenter{
     @Override
     public void setIdProductSession(final String id){
         if(!(id.equals(""))) {
-
+            User user = (User) userSessionRepository.getSessionData();
            /*AndroidNetworking.get("192.168.2.4:8000/api/product/{id}")*/
-            AndroidNetworking.get("http://192.168.43.170:8000/api/product/{id}")
+            AndroidNetworking.get("http://api.guwudangin.me/api/product/{id}")
+                    .addHeaders("authorization","Bearer " + user.getToken())
                     .addPathParameter("id", id)
                     .build()
                     .getAsObject(Product.class, new ParsedRequestListener<Product>() {
@@ -47,7 +50,7 @@ public class QRScannerPresenter implements QRScannerContract.Presenter{
                         public void onResponse(Product product) {
                             // do anything with response
                             Product save = product;
-                            sessionRepository.setSessionData(save);
+                            productSessionRepository.setSessionData(save);
                             Log.d("Sukses", "Sukses");
                             view.redirectToProduct();
                         }

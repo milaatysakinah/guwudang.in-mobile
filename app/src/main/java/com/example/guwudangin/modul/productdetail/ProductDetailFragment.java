@@ -14,7 +14,6 @@ import com.example.guwudangin.R;
 import com.example.guwudangin.base.BaseFragment;
 import com.example.guwudangin.data.model.Product;
 import com.example.guwudangin.data.source.session.ProductSessionRepository;
-import com.example.guwudangin.data.source.session.UserSessionRepositoryRepository;
 import com.example.guwudangin.modul.login.LoginActivity;
 import com.example.guwudangin.modul.qrscanner.QRScannerActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,7 +23,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
  */
 
 public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, ProductDetailContract.Presenter> implements ProductDetailContract.View {
-    Button btnBack;
+    Button btnLogout;
     FloatingActionButton QRfab;
     TextView productID, productName, productPrice, productDesc, productStock;
 
@@ -39,8 +38,8 @@ public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, P
         mPresenter = new ProductDetailPresenter(this, new ProductSessionRepository(getActivity()));                      //add
         mPresenter.start();
 
-        btnBack = fragmentView.findViewById(R.id.bt_back);
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        btnLogout = fragmentView.findViewById(R.id.bt_logout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setBtBackClick();
@@ -52,7 +51,7 @@ public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, P
         productPrice = fragmentView.findViewById(R.id.textView6);
         productStock = fragmentView.findViewById(R.id.textView7);
         productDesc = fragmentView.findViewById(R.id.textView8);
-        QRfab = fragmentView.findViewById(R.id.fabqr);
+        QRfab = fragmentView.findViewById(R.id.bt_back);
 
         QRfab.setOnClickListener(new View.OnClickListener() {
             @Override

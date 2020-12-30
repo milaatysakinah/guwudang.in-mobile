@@ -6,11 +6,11 @@ import android.content.SharedPreferences;
 import com.example.guwudangin.data.model.User;
 import com.google.gson.Gson;
 
-public class UserSessionRepositoryRepository implements SessionRepository<User> {
+public class UserSessionRepository implements SessionRepository<User> {
     private static String SESSION_USER = "SessionUser";
     private SharedPreferences sharedPref;
 
-    public UserSessionRepositoryRepository(Context context) {
+    public UserSessionRepository(Context context) {
         sharedPref = context.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
     }
 

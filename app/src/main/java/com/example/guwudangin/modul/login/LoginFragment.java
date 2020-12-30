@@ -14,17 +14,12 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import com.example.guwudangin.MainActivity;
 import com.example.guwudangin.R;
 import com.example.guwudangin.base.BaseFragment;
-import com.example.guwudangin.data.source.session.UserSessionRepositoryRepository;
-import com.example.guwudangin.modul.productdetail.ProductDetailActivity;
+import com.example.guwudangin.data.source.session.UserSessionRepository;
 import com.example.guwudangin.modul.qrscanner.QRScannerActivity;
 import com.google.common.util.concurrent.ListenableFuture;
-
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by fahrul on 13/03/19.
@@ -47,7 +42,7 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         fragmentView = inflater.inflate(R.layout.activity_login, container, false);
-        mPresenter = new LoginPresenter(this, new UserSessionRepositoryRepository(getActivity()));                      //add
+        mPresenter = new LoginPresenter(this, new UserSessionRepository(getActivity()));                      //add
         mPresenter.start();
 
         etEmail = fragmentView.findViewById(R.id.et_email);

@@ -1,12 +1,17 @@
 package com.example.guwudangin.modul.login;
 
+import android.widget.Toast;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.example.guwudangin.data.model.User;
 import com.example.guwudangin.data.source.session.SessionRepository;
 
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.Console;
 
 public class LoginPresenter implements com.example.guwudangin.modul.login.LoginContract.Presenter{
     private final LoginContract.View view;
@@ -27,7 +32,7 @@ public class LoginPresenter implements com.example.guwudangin.modul.login.LoginC
     @Override
     public void performLogin(final String email, final String password){
         //proses login
-        AndroidNetworking.post("http://192.168.43.170:8000/api/login")
+        AndroidNetworking.post("http://api.guwudangin.me/api/login")
                                     .addBodyParameter("email", email)
                                     .addBodyParameter("password", password)
                                     .build()
@@ -36,8 +41,13 @@ public class LoginPresenter implements com.example.guwudangin.modul.login.LoginC
                                         public void onResponse(JSONObject response) {
                                                 //if login success
                                                 view.showError("login success");
-                                                User loggedUser = new User(email, "TOKEN123456");                                    //new
-                                                sessionRepository.setSessionData(loggedUser);                                               //new
+                                            User loggedUser = null;                                    //new
+                                            try {
+                                                loggedUser = new User(email, (String) response.get("token"));
+                                            } catch (JSONException e) {
+                                                view.showError(String.valueOf(e));
+                                            }
+                                            sessionRepository.setSessionData(loggedUser);                                               //new
 
                                                 //then call redirect to profile
                                                 view.redirectToProfile();
