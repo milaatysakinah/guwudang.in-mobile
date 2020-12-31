@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import com.example.guwudangin.R;
 import com.example.guwudangin.base.BaseFragment;
 import com.example.guwudangin.data.model.Product;
+import com.example.guwudangin.data.model.ProductDetail;
+import com.example.guwudangin.data.source.session.ProductDetailSessionRepository;
 import com.example.guwudangin.data.source.session.ProductSessionRepository;
 import com.example.guwudangin.modul.login.LoginActivity;
 import com.example.guwudangin.modul.qrscanner.QRScannerActivity;
@@ -35,7 +37,7 @@ public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, P
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         fragmentView = inflater.inflate(R.layout.activity_product_detail, container, false);
-        mPresenter = new ProductDetailPresenter(this, new ProductSessionRepository(getActivity()));                      //add
+        mPresenter = new ProductDetailPresenter(this, new ProductSessionRepository(getActivity()), new ProductDetailSessionRepository(getActivity()));                      //add
         mPresenter.start();
 
         btnLogout = fragmentView.findViewById(R.id.bt_logout);
@@ -71,10 +73,12 @@ public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, P
 
     private void getData() {
         Product product = mPresenter.getProduct();
+        ProductDetail detail = mPresenter.getProductDetail();
         productID.setText(productID.getText() + " : " + product.getId());
         productName.setText(product.getProduct_name());
         productDesc.setText(product.getDescription());
         productPrice.setText(productPrice.getText() + " : " + product.getPrice());
+        productStock.setText(productStock.getText() + " " + detail.getProduct_quantity());
     }
 
     @Override

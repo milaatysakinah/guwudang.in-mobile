@@ -24,6 +24,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
 
+import com.example.guwudangin.data.source.session.ProductDetailSessionRepository;
 import com.example.guwudangin.data.source.session.ProductSessionRepository;
 import com.example.guwudangin.modul.productdetail.ProductDetailActivity;
 import com.example.guwudangin.util.QRCodeFoundListener;
@@ -56,7 +57,7 @@ public class QRScannerFragment extends BaseFragment<QRScannerActivity, QRScanner
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         fragmentView = inflater.inflate(R.layout.activity_main, container, false);
-        mPresenter = new QRScannerPresenter(this, new UserSessionRepository(getActivity()), new ProductSessionRepository(getActivity()));                      //add
+        mPresenter = new QRScannerPresenter(this, new UserSessionRepository(getActivity()), new ProductSessionRepository(getActivity()), new ProductDetailSessionRepository(getActivity()));                      //add
         mPresenter.start();
 
         previewView = fragmentView.findViewById(R.id.activity_main_previewView);
