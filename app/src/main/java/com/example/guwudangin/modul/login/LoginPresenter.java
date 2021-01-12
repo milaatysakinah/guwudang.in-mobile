@@ -1,10 +1,12 @@
 package com.example.guwudangin.modul.login;
 
+import android.util.Log;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.example.guwudangin.constant.ApiConstant;
 import com.example.guwudangin.data.model.User;
 import com.example.guwudangin.data.source.session.SessionRepository;
 
@@ -32,7 +34,9 @@ public class LoginPresenter implements com.example.guwudangin.modul.login.LoginC
     @Override
     public void performLogin(final String email, final String password){
         //proses login
-        AndroidNetworking.post("http://api.guwudangin.me/api/login")
+        Log.d("Login" ,ApiConstant.BASE_URL + "login");
+        AndroidNetworking.post(ApiConstant.BASE_URL + "login")
+//        AndroidNetworking.post("http://api.guwudangin.me/api/login")
                                     .addBodyParameter("email", email)
                                     .addBodyParameter("password", password)
                                     .build()

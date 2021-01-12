@@ -8,6 +8,7 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.androidnetworking.interfaces.ParsedRequestListener;
+import com.example.guwudangin.constant.ApiConstant;
 import com.example.guwudangin.data.model.Product;
 import com.example.guwudangin.data.model.ProductDetail;
 import com.example.guwudangin.data.model.User;
@@ -45,8 +46,8 @@ public class QRScannerPresenter implements QRScannerContract.Presenter{
     public void setIdProductSession(final String id){
         if(!(id.equals(""))) {
             User user = (User) userSessionRepository.getSessionData();
-           /*AndroidNetworking.get("192.168.2.4:8000/api/product/{id}")*/
-            AndroidNetworking.get("http://api.guwudangin.me/api/product/{id}")
+           AndroidNetworking.get(ApiConstant.BASE_URL + "product/{id}")
+//            AndroidNetworking.get("http://api.guwudangin.me/api/product/{id}")
                     .addHeaders("authorization","Bearer " + user.getToken())
                     .addPathParameter("id", id)
                     .build()
@@ -95,7 +96,8 @@ public class QRScannerPresenter implements QRScannerContract.Presenter{
         Log.d("Product Detail", "in");
             User user = (User) userSessionRepository.getSessionData();
             Product products = (Product) productSessionRepository.getSessionData();
-            AndroidNetworking.get("http://api.guwudangin.me/api/productDetailByProductID")
+            AndroidNetworking.get(ApiConstant.BASE_URL + "productDetailByProductID")
+//            AndroidNetworking.get("http://api.guwudangin.me/api/productDetailByProductID")
                     .addHeaders("authorization", "Bearer " + user.getToken())
                     .addQueryParameter("search", products.getId())
                     .build()
@@ -116,5 +118,11 @@ public class QRScannerPresenter implements QRScannerContract.Presenter{
                         }
                     });
         //}
+    }
+
+    @Override
+    public void logout() {
+        userSessionRepository.destroy();
+        view.redirectToLogin();
     }
 }

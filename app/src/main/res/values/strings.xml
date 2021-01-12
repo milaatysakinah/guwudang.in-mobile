@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Guwudang.in</string>
     <string name="welcome">Welcome!</string>
+    <string name="IPaddress">192.168.2.2</string>
 </resources>

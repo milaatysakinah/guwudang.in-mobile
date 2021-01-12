@@ -26,6 +26,7 @@ import androidx.lifecycle.LifecycleOwner;
 
 import com.example.guwudangin.data.source.session.ProductDetailSessionRepository;
 import com.example.guwudangin.data.source.session.ProductSessionRepository;
+import com.example.guwudangin.modul.login.LoginActivity;
 import com.example.guwudangin.modul.productdetail.ProductDetailActivity;
 import com.example.guwudangin.util.QRCodeFoundListener;
 import com.example.guwudangin.util.QRCodeImageAnalyzer;
@@ -45,7 +46,7 @@ public class QRScannerFragment extends BaseFragment<QRScannerActivity, QRScanner
     final int PERMISSION_REQUEST_CAMERA = 0;
     PreviewView previewView;
     ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
-    Button qrCodeFoundButton;
+    Button qrCodeFoundButton, btnLogout;
     String qrCode;
 
 
@@ -74,10 +75,22 @@ public class QRScannerFragment extends BaseFragment<QRScannerActivity, QRScanner
             }
         });
 
+        btnLogout = fragmentView.findViewById(R.id.bt_logout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setBtBackClick();
+            }
+        });
+
         cameraProviderFuture = ProcessCameraProvider.getInstance(getContext());
         requestCamera();
 
         return fragmentView;
+    }
+
+    public void setBtBackClick(){
+        mPresenter.logout();
     }
 
     private void setQRCodeFoundButtonClick() {
@@ -171,5 +184,12 @@ public class QRScannerFragment extends BaseFragment<QRScannerActivity, QRScanner
                 Toast.makeText(getContext(), "Camera Permission Denied", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    @Override
+    public void redirectToLogin() {
+        Intent intent = new Intent(activity, LoginActivity.class);
+        startActivity(intent);
+        activity.finish();
     }
 }

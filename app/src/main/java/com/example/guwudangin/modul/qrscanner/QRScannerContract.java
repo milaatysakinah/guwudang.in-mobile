@@ -17,10 +17,12 @@ public interface QRScannerContract {
         void startCamera();
         void bindCameraPreview(@NonNull ProcessCameraProvider cameraProvider);
         void redirectToProduct();
+        void redirectToLogin();
     }
 
     interface Presenter extends BasePresenter {
         //void performLogin();
+        void logout();
         void setIdProductSession(String id);
         void setProductDetail(Product product);
     }
