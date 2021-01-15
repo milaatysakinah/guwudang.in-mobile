@@ -35,8 +35,8 @@ public class LoginPresenter implements com.example.guwudangin.modul.login.LoginC
     public void performLogin(final String email, final String password){
         //proses login
         Log.d("Login" ,ApiConstant.BASE_URL + "login");
-        AndroidNetworking.post(ApiConstant.BASE_URL + "login")
-//        AndroidNetworking.post("http://api.guwudangin.me/api/login")
+//        AndroidNetworking.post(ApiConstant.BASE_URL + "login")
+       AndroidNetworking.post("http://api.guwudangin.me/api/login")
                                     .addBodyParameter("email", email)
                                     .addBodyParameter("password", password)
                                     .build()

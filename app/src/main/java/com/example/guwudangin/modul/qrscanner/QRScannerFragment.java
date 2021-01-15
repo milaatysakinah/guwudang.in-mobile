@@ -37,10 +37,6 @@ import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
 
-/**
- * Created by fahrul on 13/03/19.
- */
-
 public class QRScannerFragment extends BaseFragment<QRScannerActivity, QRScannerContract.Presenter> implements QRScannerContract.View {
 
     final int PERMISSION_REQUEST_CAMERA = 0;
@@ -100,7 +96,7 @@ public class QRScannerFragment extends BaseFragment<QRScannerActivity, QRScanner
     @Override
     public void redirectToProduct() {
         Intent intent = new Intent(activity, ProductDetailActivity.class);
-        Toast.makeText(activity, "Moving To Product", Toast.LENGTH_LONG).show();
+       // Toast.makeText(activity, "Moving To Product", Toast.LENGTH_LONG).show();
         startActivity(intent);
         activity.finish();
     }

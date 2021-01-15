@@ -34,10 +34,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-/**
- * Created by fahrul on 13/03/19.
- */
-
 public class ProductDetailFragment extends BaseFragment<ProductDetailActivity, ProductDetailContract.Presenter> implements ProductDetailContract.View {
     ImageButton btnLogout, btnAbout;
     FloatingActionButton QRfab;
