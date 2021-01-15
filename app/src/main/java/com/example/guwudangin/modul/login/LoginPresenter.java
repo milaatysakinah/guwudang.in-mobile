@@ -36,18 +36,17 @@ public class LoginPresenter implements com.example.guwudangin.modul.login.LoginC
                     .getAsObject(User.class, new ParsedRequestListener<User>() {
                         @Override
                         public void onResponse(User user) {
-                            if(userSession.getToken() != user.getToken()) {
-                                sessionRepository.destroy();
-                                view.redirectToLogin();
-                            }
+                            view.redirectToProfile();
                         }
                         @Override
                         public void onError(ANError anError) {
                             // handle error
                             Log.d("Gagal Product", anError.toString());
+                            sessionRepository.destroy();
+                            view.redirectToLogin();
                         }
                     });
-            view.redirectToProfile();                                                               //jika sudah login langsung masuk profile
+                                                                         //jika sudah login langsung masuk profile
         }
     }
 
