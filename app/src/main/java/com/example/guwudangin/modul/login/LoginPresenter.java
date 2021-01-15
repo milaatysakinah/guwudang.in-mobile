@@ -6,7 +6,9 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.example.guwudangin.constant.ApiConstant;
+import com.example.guwudangin.data.model.Product;
 import com.example.guwudangin.data.model.User;
 import com.example.guwudangin.data.source.session.SessionRepository;
 
@@ -26,7 +28,25 @@ public class LoginPresenter implements com.example.guwudangin.modul.login.LoginC
 
     @Override
     public void start() {
-        if(sessionRepository.getSessionData() != null){                                             //new
+        User userSession = (User) sessionRepository.getSessionData();
+        if(userSession != null){
+            AndroidNetworking.get(ApiConstant.BASE_URL + "authUser")
+                    .addHeaders("authorization","Bearer " + userSession.getToken())
+                    .build()
+                    .getAsObject(User.class, new ParsedRequestListener<User>() {
+                        @Override
+                        public void onResponse(User user) {
+                            if(userSession.getToken() != user.getToken()) {
+                                sessionRepository.destroy();
+                                view.redirectToLogin();
+                            }
+                        }
+                        @Override
+                        public void onError(ANError anError) {
+                            // handle error
+                            Log.d("Gagal Product", anError.toString());
+                        }
+                    });
             view.redirectToProfile();                                                               //jika sudah login langsung masuk profile
         }
     }
@@ -35,8 +55,8 @@ public class LoginPresenter implements com.example.guwudangin.modul.login.LoginC
     public void performLogin(final String email, final String password){
         //proses login
         Log.d("Login" ,ApiConstant.BASE_URL + "login");
-//        AndroidNetworking.post(ApiConstant.BASE_URL + "login")
-       AndroidNetworking.post("http://api.guwudangin.me/api/login")
+        AndroidNetworking.post(ApiConstant.BASE_URL + "login")
+//       AndroidNetworking.post("http://api.guwudangin.me/api/login")
                                     .addBodyParameter("email", email)
                                     .addBodyParameter("password", password)
                                     .build()

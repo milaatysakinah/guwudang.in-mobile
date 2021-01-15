@@ -28,7 +28,6 @@
         <activity android:name=".modul.login.LoginActivity"/>
         <activity android:name=".modul.productdetail.ProductDetailActivity" />
         <activity android:name=".modul.qrscanner.QRScannerActivity" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".modul.aboutus.AboutUsActivity"/>
     </application>
 

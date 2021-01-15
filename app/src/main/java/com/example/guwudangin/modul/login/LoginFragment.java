@@ -87,7 +87,12 @@ public class LoginFragment extends BaseFragment<LoginActivity, LoginContract.Pre
             activity.finish();
     }
 
-
+    @Override
+    public void redirectToLogin() {
+        Intent intent = new Intent(activity, LoginActivity.class);
+        startActivity(intent);
+        activity.finish();
+    }
 
     public void requestCamera() {
         if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {

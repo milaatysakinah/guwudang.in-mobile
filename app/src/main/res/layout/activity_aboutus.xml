@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:background="@drawable/product_review"
+                android:background="@drawable/about_us"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -199,7 +199,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/regular"
-                                android:text="Milati as a \nProduct Owner"
+                                android:text="Milati as a \nPO"
                                 android:textAlignment="center"
                                 android:textColor="@color/titletext"
                                 android:textSize="15sp" />
@@ -290,7 +290,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/extrabold"
                     android:text="Supported By"
                     android:textAlignment="center"
@@ -395,7 +395,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Umi Sa'adah (Dosen Teknik Informatika PENS)"
+                        android:text="Umi Sa'adah"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -404,7 +404,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Desy Intan Permatasari (Dosen Teknik Informatika PENS)"
+                        android:text="Desy Intan Permatasari"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -413,7 +413,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Andhik Ampuh Yunanto (Dosen Teknik Informatika PENS)"
+                        android:text="Andhik Ampuh Yunanto"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -422,7 +422,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Maulidan Bagus Afridian Rasyid (Founder Maulidan Games \u0026 Rasyid Technologies)"
+                        android:text="Maulidan Bagus Afridian Rasyid"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -431,7 +431,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Willy Achmat Fauzi (CEO Sindika)"
+                        android:text="Willy Achmat Fauzi"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -440,7 +440,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Verent Flourencia Irene (UX Designer Maulidan Games)"
+                        android:text="Verent Flourencia Irene"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -449,7 +449,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Mayshella Ainun Wakhidah (Mahasiswa Teknik Informatika PENS)"
+                        android:text="Mayshella Ainun Wakhidah"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -458,7 +458,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Andika Ahmad Ramadhan (Mahasiswa Teknik Informatika PENS)"
+                        android:text="Andika Ahmad Ramadhan"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -467,7 +467,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Fandi Ahmad (Mahasiswa Teknik Informatika PENS)"
+                        android:text="Fandi Ahmad"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -476,7 +476,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Ardian Kristya Pratama (Mobile Developer AlinaMed \u0026 Ikkat Inovasi Teknologi)"
+                        android:text="Ardian Kristya Pratama"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -485,7 +485,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Angga Pradipta Kurnia Putra (CTO AlinaMed \u0026 Mobile Developer Ikkat Inovasi Teknologi)"
+                        android:text="Angga Pradipta Kurnia Putra"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -494,7 +494,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Muhammad Alif Pradipta ADP (Mobile Developer Sindika)"
+                        android:text="Muhammad Alif Pradipta ADP"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -503,7 +503,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Rafly Arief Kanza (Owner \u0026 Full Stack Developer punggawastudio.com)"
+                        android:text="Rafly Arief Kanza"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -512,7 +512,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Ahmad Jarir At Thobari (Software Engineer Rasyid Technologies)"
+                        android:text="Ahmad Jarir At Thobari"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -521,7 +521,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Ajie Dibyo Respati (Mahasiswa Teknik Informatika PENS)"
+                        android:text="Ajie Dibyo Respati"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -530,7 +530,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Achmad Zulkarnain (CEO \u0026 Co-Founder TrustMedis)"
+                        android:text="Achmad Zulkarnain"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -539,7 +539,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Arie Affianto (Founder Profilku Mobile \u0026 Samsung Developer Warrior)"
+                        android:text="Arie Affianto"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
@@ -548,7 +548,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/regular"
-                        android:text="Tegar Imansyah ( Software RnD in System Architect Alterra)"
+                        android:text="Tegar Imansyah"
                         android:textAlignment="center"
                         android:textColor="@color/titletext"
                         android:textSize="15sp" />
