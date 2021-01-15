@@ -65,6 +65,7 @@ public class QRScannerPresenter implements QRScannerContract.Presenter{
                         public void onError(ANError anError) {
                             // handle error
                             Log.d("Gagal Product", anError.toString());
+                            view.displayToast("Product tidak ditemukan");
                         }
                     });
 //            AndroidNetworking.get("http://192.168.2.4:8000/api/product/{productId}")
@@ -105,7 +106,12 @@ public class QRScannerPresenter implements QRScannerContract.Presenter{
                         @Override
                         public void onResponse(List<ProductDetail> productDetails) {
                             // do anything with response
-                            ProductDetail save = productDetails.get(0);
+                            int total = 0;
+                            for(int i = 0; i < productDetails.size(); i++) {
+                                total += Integer.valueOf(productDetails.get(i).getProduct_quantity());
+                            }
+
+                            ProductDetail save = new ProductDetail("", "", String.valueOf(total), "", "");
                             productDetailSessionRepository.setSessionData(save);
                             Log.d("Sukses Detail", "Sukses");
                             view.redirectToProduct();
@@ -115,6 +121,7 @@ public class QRScannerPresenter implements QRScannerContract.Presenter{
                         public void onError(ANError anError) {
                             // handle error
                             Log.d("Gagal Detail", anError.toString());
+                            view.displayToast("Product tidak ditemukan");
                         }
                     });
         //}

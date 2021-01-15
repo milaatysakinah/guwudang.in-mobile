@@ -85,6 +85,11 @@ public class QRScannerFragment extends BaseFragment<QRScannerActivity, QRScanner
         return fragmentView;
     }
 
+    @Override
+    public void displayToast(String text){
+        Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
+    }
+
     public void setBtBackClick(){
         mPresenter.logout();
     }

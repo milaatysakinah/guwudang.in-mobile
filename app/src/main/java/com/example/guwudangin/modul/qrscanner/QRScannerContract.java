@@ -15,6 +15,7 @@ public interface QRScannerContract {
         void bindCameraPreview(@NonNull ProcessCameraProvider cameraProvider);
         void redirectToProduct();
         void redirectToLogin();
+        void displayToast(String text);
     }
 
     interface Presenter extends BasePresenter {
