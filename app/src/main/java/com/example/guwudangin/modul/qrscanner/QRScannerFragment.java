@@ -9,12 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.camera.lifecycle.ProcessCameraProvider;
-import androidx.camera.view.PreviewView;
 import androidx.core.app.ActivityCompat;
 
 import com.example.guwudangin.R;
@@ -31,7 +31,8 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 public class QRScannerFragment extends BaseFragment<QRScannerActivity, QRScannerContract.Presenter> implements QRScannerContract.View, ZXingScannerView.ResultHandler {
 
     final int PERMISSION_REQUEST_CAMERA = 0;
-    PreviewView previewView;
+    //PreviewView previewView;
+    FrameLayout previewView;
     ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
     Button qrCodeFoundButton, btnLogout;
     String qrCode;
@@ -135,7 +136,9 @@ public class QRScannerFragment extends BaseFragment<QRScannerActivity, QRScanner
     public void startZxingCamera(){
         mScannerView = new ZXingScannerView(getContext());   // Programmatically initialize the scanner view
         mScannerView.setResultHandler(QRScannerFragment.this); // Register ourselves as a handler for scan results.
-        activity.setContentView(mScannerView);
+        previewView.addView(mScannerView);
+        //activity.setContentView(mScannerView);
+
         mScannerView.startCamera();
     }
 

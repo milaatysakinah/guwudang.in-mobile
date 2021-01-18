@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     android:background="@drawable/cards_background">
 
-    <androidx.camera.view.PreviewView
+    <FrameLayout
         android:id="@+id/activity_main_previewView"
         android:layout_width="381dp"
         android:layout_height="628dp"
@@ -16,6 +16,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.796" />
+
+
 
     <Button
         android:id="@+id/activity_main_qrCodeFoundButton"
