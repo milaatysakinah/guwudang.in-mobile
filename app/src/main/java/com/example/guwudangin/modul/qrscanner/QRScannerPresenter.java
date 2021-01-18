@@ -3,22 +3,13 @@ package com.example.guwudangin.modul.qrscanner;
 import android.util.Log;
 
 import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONArrayRequestListener;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.example.guwudangin.constant.ApiConstant;
 import com.example.guwudangin.data.model.Product;
 import com.example.guwudangin.data.model.ProductDetail;
 import com.example.guwudangin.data.model.User;
 import com.example.guwudangin.data.source.session.SessionRepository;
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.List;
 
@@ -66,6 +57,7 @@ public class QRScannerPresenter implements QRScannerContract.Presenter{
                             // handle error
                             Log.d("Gagal Product", anError.toString());
                             view.displayToast("Product tidak ditemukan");
+                            view.startZxingCamera();
                         }
                     });
 //            AndroidNetworking.get("http://192.168.2.4:8000/api/product/{productId}")

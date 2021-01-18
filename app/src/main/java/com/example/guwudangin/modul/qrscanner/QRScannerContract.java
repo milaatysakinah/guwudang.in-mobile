@@ -1,8 +1,5 @@
 package com.example.guwudangin.modul.qrscanner;
 
-import androidx.annotation.NonNull;
-import androidx.camera.lifecycle.ProcessCameraProvider;
-
 import com.example.guwudangin.base.BasePresenter;
 import com.example.guwudangin.base.BaseView;
 import com.example.guwudangin.data.model.Product;
@@ -11,8 +8,7 @@ import com.example.guwudangin.data.model.Product;
 public interface QRScannerContract {
     interface View extends BaseView<Presenter> {
         void requestCamera();
-        void startCamera();
-        void bindCameraPreview(@NonNull ProcessCameraProvider cameraProvider);
+        void startZxingCamera();
         void redirectToProduct();
         void redirectToLogin();
         void displayToast(String text);
